@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - FitLife Online Coaching</title>
+    <link rel="stylesheet" href="style-updated-v2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #35424a;
+            --secondary: #e8491d;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #777;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .navbar a:hover {
+            background: rgba(232, 73, 29, 0.1);
+        }
+
+        /* Hero Section */
+        #about-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(53, 66, 74, 0.8), rgba(44, 62, 80, 0.9)), url('gym.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        /* Coach Profile */
+        .coach-profile {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .coach-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .coach-bio {
+            flex: 1;
+        }
+
+        .coach-bio h2 {
+            margin-bottom: 1rem;
+        }
+
+        .coach-bio p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        /* Philosophy */
+        #philosophy {
+            background: var(--light);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .philosophy-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .philosophy-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .philosophy-item h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Testimonials */
+        #testimonials {
+            background: var(--light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 4rem;
+            color: rgba(232, 73, 29, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .author-info h4 {
+            margin: 0;
+            color: var(--primary);
+        }
+
+        .author-info p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .coach-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about-hero">
+            <div class="hero-content">
+                <h1>Meet Your Coach</h1>
+                <p>Dedicated to helping you achieve your fitness goals through personalized coaching and support</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="coach-profile">
+                <img src="coach-profile.jpg" alt="Coach Salman" class="coach-img">
+                <div class="coach-bio">
+                    <h2>About Salman</h2>
+                    <p>Hello! I'm Salman, a certified fitness coach with over 3 years of experience. My passion lies in helping individuals unlock their full potential and achieve lasting health transformations.</p>
+                    <p>I believe in a holistic approach to fitness, emphasizing both physical and mental well-being. My coaching style focuses on sustainable habits rather than quick fixes.</p>
+                    <p>When I'm not coaching, you can find me hiking, trying new healthy recipes, or continuing my education in fitness science.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy">
+            <div class="section-header">
+                <h2>My Philosophy</h2>
+                <p>Fitness is not just about working out; it's about creating a balanced lifestyle</p>
+            </div>
+            <div class="philosophy-grid">
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Personalized Workouts</h3>
+                    <p>Customized training programs designed specifically for your goals, fitness level, and schedule.</p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Nutritional Guidance</h3>
+                    <p>Practical meal planning and dietary advice to fuel your body and support your training.</p>
+                </div>
+                <div class="philosophy-item">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Mindset Coaching</h3>
+                    <p>Developing the mental resilience needed to stay consistent and overcome challenges.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="section-header">
+                <h2>Services Offered</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>One-on-One Coaching</h3>
+                    <p>Personalized attention with customized workout and nutrition plans tailored to your specific needs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Group Fitness Classes</h3>
+                    <p>Motivating group sessions that combine fun with effective workouts in a supportive environment.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Nutritional Coaching</h3>
+                    <p>Comprehensive dietary guidance to complement your training and optimize results.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Online Training</h3>
+                    <p>Flexible training programs you can follow at your own pace, with regular check-ins and adjustments.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="section-header">
+                <h2>Client Success Stories</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Salman has completely transformed my approach to health and fitness. His personalized coaching helped me lose 20 pounds and maintain it for over a year!</p>
+                        <div class="testimonial-author">
+                            <img src="gym.jpg" alt="Client" class="author-img">
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Client since 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">The nutritional guidance was a game-changer for me. I finally understand how to fuel my body properly while still enjoying my meals.</p>
+                        <div class="testimonial-author">
+                            <img src="gym.jpg" alt="Client" class="author-img">
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <p>Client since 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">I love the flexibility of the online programs. As a busy professional, being able to workout on my schedule has made all the difference.</p>
+                        <div class="testimonial-author">
+                            <img src="gym.jpg" alt="Client" class="author-img">
+                            <div class="author-info">
+                                <h4>David Rodriguez</h4>
+                                <p>Client since 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FitLife Online Coaching. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

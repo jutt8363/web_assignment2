@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - FitLife Online Coaching</title>
+    <link rel="stylesheet" href="style-updated-v2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #35424a;
+            --secondary: #e8491d;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #777;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .navbar a:hover {
+            background: rgba(232, 73, 29, 0.1);
+        }
+
+        /* Hero Section */
+        #services-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(53, 66, 74, 0.8), rgba(44, 62, 80, 0.9)), url('gym.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        /* Pricing */
+        #pricing {
+            background: var(--light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--secondary);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .pricing-features {
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pricing-btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .pricing-btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 4rem;
+            color: rgba(232, 73, 29, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .author-info h4 {
+            margin: 0;
+            color: var(--primary);
+        }
+
+        .author-info p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* CTA */
+        #cta {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            text-align: center;
+        }
+
+        #cta h2 {
+            color: white;
+        }
+
+        #cta p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="services-hero">
+            <div class="hero-content">
+                <h1>Our Services</h1>
+                <p>Customized fitness solutions designed to help you achieve your goals</p>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="section-header">
+                <h2>Training Programs</h2>
+                <p>Choose the program that best fits your goals and lifestyle</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="weight-loss.jpg" alt="Weight Loss Program">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-weight-scale"></i>
+                        </div>
+                        <h3>Weight Loss Program</h3>
+                        <p>Tailored plans for sustainable weight loss, focusing on nutrition and exercise.</p>
+                        <ul class="service-features">
+                            <li>Personalized workout plans</li>
+                            <li>Custom meal plans</li>
+                            <li>Weekly progress tracking</li>
+                            <li>24/7 support</li>
+                        </ul>
+                        <a href="contact.html" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="strength-training.jpg" alt="Strength Training Program">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3>Strength Training</h3>
+                        <p>Build muscle and increase strength with customized workout routines.</p>
+                        <ul class="service-features">
+                            <li>Progressive overload techniques</li>
+                            <li>Form correction</li>
+                            <li>Equipment guidance</li>
+                            <li>All fitness levels</li>
+                        </ul>
+                        <a href="contact.html" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="nutrition-coaching.jpg" alt="Nutrition Coaching">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Nutrition Coaching</h3>
+                        <p>Personalized meal plans and nutritional guidance to support your fitness goals.</p>
+                        <ul class="service-features">
+                            <li>Custom meal plans</li>
+                            <li>Macro tracking</li>
+                            <li>Grocery lists</li>
+                            <li>Recipe database</li>
+                        </ul>
+                        <a href="contact.html" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="personal-training.jpg" alt="Personal Training">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Personal Training</h3>
+                        <p>One-on-one virtual training sessions with personalized workouts.</p>
+                        <ul class="service-features">
+                            <li>Real-time feedback</li>
+                            <li>Customized workouts</li>
+                            <li>Progress tracking</li>
+                            <li>Motivational support</li>
+                        </ul>
+                        <a href="contact.html" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing">
+            <div class="section-header">
+                <h2>Pricing Plans</h2>
+                <p>Affordable options for every budget and commitment level</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div class="price">$49<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Custom workout plan</li>
+                        <li>Email support</li>
+                        <li>Weekly check-ins</li>
+                        <li>Progress tracking</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Premium</h3>
+                    <div class="price">$99<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Custom workout & meal plan</li>
+                        <li>24/7 support</li>
+                        <li>Bi-weekly video calls</li>
+                        <li>Form correction</li>
+                        <li>Progress tracking</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Elite</h3>
+                    <div class="price">$199<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Custom workout & meal plan</li>
+                        <li>24/7 priority support</li>
+                        <li>Weekly video calls</li>
+                        <li>Personalized coaching</li>
+                        <li>Progress tracking</li>
+                        <li>Accountability partner</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="section-header">
+                <h2>Success Stories</h2>
+                <p>Hear from our satisfied clients</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">The weight loss program helped me lose 30 pounds in 4 months. The meal plans were easy to follow and the workouts were challenging but achievable.</p>
+                        <div class="testimonial-author">
+                            <img src="gym.jpg" alt="Client" class="author-img">
+                            <div class="author-info">
+                                <h4>Jennifer K.</h4>
+                                <p>Weight Loss Program</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">I've gained 15 pounds of muscle in 6 months with the strength training program. The progressive overload techniques really work!</p>
+                        <div class="testimonial-author">
+                            <img src="gym.jpg" alt="Client" class="author-img">
+                            <div class="author-info">
+                                <h4>Mark T.</h4>
+                                <p>Strength Training</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">The nutrition coaching taught me how to eat properly for my goals. I've never felt better and my performance has improved dramatically.</p>
+                        <div class="testimonial-author">
+                            <img src="gym.jpg" alt="Client" class="author-img">
+                            <div class="author-info">
+                                <h4>Sarah L.</h4>
+                                <p>Nutrition Coaching</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta">
+            <div class="section-header">
+                <h2>Ready to Transform Your Life?</h2>
+            </div>
+            <p>Take the first step towards your fitness goals today. Our team is ready to help you succeed.</p>
+            <a href="contact.html" class="cta-button">Get Started Now</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FitLife Online Coaching. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

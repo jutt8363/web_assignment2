@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - FitLife Online Coaching</title>
+    <link rel="stylesheet" href="style-updated-v2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .navbar a:hover {
+            background: rgba(232, 73, 29, 0.1);
+        }
+        /* Color Variables */
+        :root {
+            --primary: #35424a;
+            --secondary: #e8491d;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --error: #e74c3c;
+        }
+
+        /* Main Container */
+        .contact-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        #contact-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(53, 66, 74, 0.8), rgba(44, 62, 80, 0.9)), url('gym.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Container */
+        .contact-container {
+            display: flex;
+            gap: 2rem;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Form Styles */
+        .contact-form {
+            flex: 1;
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(53, 66, 74, 0.1);
+            outline: none;
+            background-color: white;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 1.1rem;
+        }
+
+        textarea.form-input {
+            min-height: 150px;
+            resize: vertical;
+            padding-left: 1rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            box-shadow: 0 5px 15px rgba(53, 66, 74, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            padding: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .info-header h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .info-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .info-text {
+            flex: 1;
+        }
+
+        .info-text h4 {
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .info-text p, .info-text a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-text a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+            
+            .contact-info {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+</header>
+    </header>
+
+    <main>
+        <section id="contact-hero">
+            <div class="hero-content">
+                <h1>Contact Us</h1>
+                <p>We'd love to hear from you! Reach out with any questions or feedback.</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Have questions or want to get started? Send us a message and we'll respond as soon as possible.</p>
+            </div>
+
+            <div class="contact-container">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+                        </div>
+                        <span id="nameError" class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                        <span id="emailError" class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-tag input-icon"></i>
+                            <select id="subject" name="subject" class="form-input">
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Program Inquiry">Program Inquiry</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea id="message" name="message" class="form-input" placeholder="Type your message here..." required></textarea>
+                        <span id="messageError" class="error-message"></span>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+
+                    <div id="successMessage" class="success-message">
+                        <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+                    </div>
+                </form>
+
+                <div class="contact-info">
+                    <div class="info-header">
+                        <h3>Contact Information</h3>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt info-icon"></i>
+                            <div class="info-text">
+                                <h4>Address</h4>
+                                <p>123 Fitness Street, Health City, HC 12345</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone info-icon"></i>
+                            <div class="info-text">
+                                <h4>Phone</h4>
+                                <p><a href="tel:+1234567890">(123) 456-7890</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope info-icon"></i>
+                            <div class="info-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:contact@fitlife.com">contact@fitlife.com</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock info-icon"></i>
+                            <div class="info-text">
+                                <h4>Hours</h4>
+                                <p>Monday - Friday: 9am - 5pm<br>Saturday: 10am - 2pm</p>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 FitLife Online Coaching. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            let isValid = true;
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const message = document.getElementById('message');
+            
+            // Reset errors
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+            
+            // Name validation
+            if (name.value.trim() === '') {
+                document.getElementById('nameError').textContent = 'Please enter your name';
+                isValid = false;
+            }
+            
+            // Email validation
+            if (email.value.trim() === '') {
+                document.getElementById('emailError').textContent = 'Please enter your email';
+                isValid = false;
+            } else if (!/^\S+@\S+\.\S+$/.test(email.value)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email';
+                isValid = false;
+            }
+            
+            // Message validation
+            if (message.value.trim() === '') {
+                document.getElementById('messageError').textContent = 'Please enter your message';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Show success message
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'block';
+                this.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: url('gym.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff; /* Default text color for visibility */
+}
+
+header {
+    background: rgba(53, 66, 74, 0.8); /* Semi-transparent background for header */
+    color: #ffffff;
+    padding: 10px 0;
+}
+
+nav {
+    background: rgba(53, 66, 74, 0.8); /* Consistent navbar color */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    background: rgba(53, 66, 74, 0.8);
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+    background: rgba(53, 66, 74, 0.8);
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+section {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for sections */
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #35424a; /* Darker color for headings */
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: rgba(53, 66, 74, 0.8); /* Semi-transparent background for footer */
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+    background: #35424a;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #2c3e50;
+}
